@@ -24,7 +24,6 @@ const CharacterBar = ({
   basicManaRegeneration,
   monsters,
   monsterId,
-  monsterLevel,
   monsterIsKilled,
   characterManaRegeneration,
   characterRessurection,
@@ -32,28 +31,35 @@ const CharacterBar = ({
 }) => {
   debugger;
   const [currentExperience, setCurrentExperience] = useState(0);
+  const { characterBarWrapper, characterWrapper } = styles;
+
+  const getExperienceWithBalance = () => {
+    return monsters[monsterId].monsterLevel != characterLevel
+      ? currentExperience +
+          monsters[monsterId].monsterExperience /
+            Math.abs(characterLevel - monsters[monsterId].monsterLevel)
+      : currentExperience + monsters[monsterId].monsterExperience;
+  };
+
+  const shouldLevelUp = () => {
+    return currentExperience > levelsUpExperience[`level_${characterLevel}`];
+  };
 
   useEffect(() => {
-    monsterIsKilled &&
-      setCurrentExperience(
-        monsters[monsterId].monsterLevel != characterLevel
-          ? currentExperience +
-              monsters[monsterId].monsterExperience /
-                Math.abs(characterLevel - monsters[monsterId].monsterLevel)
-          : currentExperience + monsters[monsterId].monsterExperience
-      );
+    monsterIsKilled && setCurrentExperience(getExperienceWithBalance());
   }, [monsterIsKilled]);
 
   useEffect(() => {
-    currentExperience > levelsUpExperience[`level_${characterLevel}`] &&
+    if (shouldLevelUp()) {
       setCharacterLevel();
-    currentExperience > levelsUpExperience[`level_${characterLevel}`] &&
       setCurrentExperience(
         currentExperience - levelsUpExperience[`level_${characterLevel}`]
       );
+    }
     characterCurrentHealth <= 0 && alert("You are Dead, Noob! Go Home!!!");
     characterCurrentHealth <= 0 &&
       setCurrentExperience(
+        // modify with functions and get rid of magical numbers
         currentExperience - levelsUpExperience[`level_${characterLevel}`] / 3 <
           0
           ? 0
@@ -62,8 +68,6 @@ const CharacterBar = ({
       );
     characterCurrentHealth <= 0 && characterRessurection();
   });
-
-  const { characterBarWrapper, characterWrapper } = styles;
 
   return (
     <View style={characterBarWrapper}>
