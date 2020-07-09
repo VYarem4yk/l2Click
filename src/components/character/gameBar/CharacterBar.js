@@ -48,17 +48,13 @@ const CharacterBar = ({
   const deathPenalty = () => {
     const penaltyExperiencePercent = 0.3;
     const minimalExperiencePercent = 0;
+    const necessaryExperience = levelsUpExperience[`level_${characterLevel}`];
     return currentExperience -
-      Math.ceil(
-        levelsUpExperience[`level_${characterLevel}`] * penaltyExperiencePercent
-      ) <
+      Math.ceil(necessaryExperience * penaltyExperiencePercent) <
       minimalExperiencePercent
       ? minimalExperiencePercent
       : currentExperience -
-          Math.ceil(
-            levelsUpExperience[`level_${characterLevel}`] *
-              penaltyExperiencePercent
-          );
+          Math.ceil(necessaryExperience * penaltyExperiencePercent);
   };
 
   useEffect(() => {
