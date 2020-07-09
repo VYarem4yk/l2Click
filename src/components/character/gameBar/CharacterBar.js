@@ -45,6 +45,18 @@ const CharacterBar = ({
     return currentExperience > levelsUpExperience[`level_${characterLevel}`];
   };
 
+  const deathPenalty = () => {
+    const penaltyExperiencePercent = 0.3;
+    const minimalExperiencePercent = 0;
+    const necessaryExperience = levelsUpExperience[`level_${characterLevel}`];
+    return currentExperience -
+      Math.ceil(necessaryExperience * penaltyExperiencePercent) <
+      minimalExperiencePercent
+      ? minimalExperiencePercent
+      : currentExperience -
+          Math.ceil(necessaryExperience * penaltyExperiencePercent);
+  };
+
   useEffect(() => {
     monsterIsKilled && setCurrentExperience(getExperienceWithBalance());
   }, [monsterIsKilled]);
@@ -60,11 +72,7 @@ const CharacterBar = ({
     characterCurrentHealth <= 0 &&
       setCurrentExperience(
         // modify with functions and get rid of magical numbers
-        currentExperience - levelsUpExperience[`level_${characterLevel}`] / 3 <
-          0
-          ? 0
-          : currentExperience -
-              Math.ceil(levelsUpExperience[`level_${characterLevel}`] / 3)
+        deathPenalty()
       );
     characterCurrentHealth <= 0 && characterRessurection();
   });
