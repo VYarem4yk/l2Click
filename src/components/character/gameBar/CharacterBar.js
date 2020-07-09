@@ -76,11 +76,7 @@ const CharacterBar = ({
     characterCurrentHealth <= 0 &&
       setCurrentExperience(
         // modify with functions and get rid of magical numbers
-        currentExperience - levelsUpExperience[`level_${characterLevel}`] / 3 <
-          0
-          ? 0
-          : currentExperience -
-              Math.ceil(levelsUpExperience[`level_${characterLevel}`] / 3)
+        deathPenalty()
       );
     characterCurrentHealth <= 0 && characterRessurection();
   });
