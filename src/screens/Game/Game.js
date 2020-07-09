@@ -5,7 +5,6 @@ import { CharacterSkillsBar } from "../../components/character/skills/characterS
 import { Wrapper } from "./components/Wrapper";
 
 export const Game = () => {
-  const { backgroundStyle } = styles;
   return (
     <Wrapper>
       <CharacterBar />
