@@ -11,7 +11,7 @@ export const CharacterHealth = ({
     const id = setInterval(() => {
       characterCurrentHealth < characterHealth &&
         characterHealthRegeneration(basicHealthRegeneration);
-    }, 500);
+    }, 2000);
     return () => clearInterval(id);
   }, [characterCurrentHealth]);
 

@@ -1,8 +1,11 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { connect } from "react-redux";
+import { useSkillHeal } from "../store/actions";
 
-export const CharacterSkillsBar = (props) => {
+export const CharacterSkillsBar = ({ useSkillHeal }) => {
   const { characterSkillsBarWrapper, characterSkill } = styles;
+
   return (
     <View style={characterSkillsBarWrapper}>
       <View style={characterSkill}>
@@ -21,7 +24,13 @@ export const CharacterSkillsBar = (props) => {
         <Text>5</Text>
       </View>
       <View style={characterSkill}>
-        <Text>6</Text>
+        <TouchableOpacity
+          onPress={() => {
+            useSkillHeal(20, 20);
+          }}
+        >
+          <Text style={{ color: "red" }}>REGEN</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -47,3 +56,14 @@ const styles = StyleSheet.create({
     margin: 3,
   },
 });
+
+const mapStateToProps = (state) => ({
+  monsters: state.monster.monsters,
+  monsterId: state.monster.monsterId,
+  monsterIsKilled: state.monster.monsterIsKilled,
+  characterPhysicalDamage: state.character.characterPhysicalDamage,
+});
+
+export default connect(mapStateToProps, {
+  useSkillHeal,
+})(CharacterSkillsBar);

@@ -55,9 +55,17 @@ export const CurentEnemy = ({
       );
       setCharacterAttackCounter(characterAttackCounter + 1);
     } else {
+      setCurrentMonsterHealth(
+        currentMonsterHealth -
+          Math.ceil((characterPhysicalDamage * 30) / monsterPhysicalDefence)
+      );
+
       setCurrentMonsterHealth(monsterHP);
-      setMonsterKilled(true);
+      setMonsterKilled(false);
       setItemDropped(true);
+      setTimeout(() => {
+        setMonsterKilled(true);
+      }, 0);
     }
   };
 

@@ -5,7 +5,6 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { ITEMS_LIST } from "../../character/store/constants";
 
 export const EnemyInfo = ({ monsterName, monsterLevel, monsterDrop }) => {
-  debugger;
   const {
     monsterInfoWrapper,
     levelWrapper,

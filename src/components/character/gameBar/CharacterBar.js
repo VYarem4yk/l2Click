@@ -29,7 +29,6 @@ const CharacterBar = ({
   characterRessurection,
   characterHealthRegeneration,
 }) => {
-  debugger;
   const [currentExperience, setCurrentExperience] = useState(0);
   const { characterBarWrapper, characterWrapper } = styles;
 
@@ -127,6 +126,7 @@ const mapStateToProps = (state) => ({
   characterHealth: state.character.characterHealth,
   characterCurrentHealth: state.character.characterCurrentHealth,
   basicHealthRegeneration: state.character.basicHealthRegeneration,
+  basicManaRegeneration: state.character.basicManaRegeneration,
   isHealthRecovered: state.character.isHealthRecovered,
   characterMana: state.character.characterMana,
   characterCurrentMana: state.character.characterCurrentMana,

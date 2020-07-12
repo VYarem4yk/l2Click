@@ -67,7 +67,7 @@ export const MONSTERS = [
   },
   {
     monsterName: "Gray Wolf",
-    monsterHealth: 308,
+    monsterHealth: 133,
     monsterExperience: 221,
     monsterSpellPoint: 7,
     monsterLevel: 5,

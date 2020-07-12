@@ -2,8 +2,10 @@ import React from "react";
 import { View, StyleSheet, ImageBackground, Image } from "react-native";
 import { EQUIPMENT_BACKGROUND } from "./constants";
 import { EQUIPMENT_LIST } from "../store/constants";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-export const Equipment = ({ characterEquipment }) => {
+export const Equipment = ({ characterEquipment, wearItem }) => {
+  debugger;
   const { equipmentWrapper, equipmentCeil, iconStyle } = styles;
   return (
     <View style={equipmentWrapper}>
@@ -15,10 +17,17 @@ export const Equipment = ({ characterEquipment }) => {
               style={iconStyle}
             >
               {equipmentId && EQUIPMENT_LIST[name][equipmentId] && (
-                <Image
-                  source={EQUIPMENT_LIST[name][equipmentId].itemImage}
-                  style={[iconStyle, { borderColor: "gold", borderWidth: 1 }]}
-                />
+                <TouchableOpacity
+                  onLongPress={() => {
+                    debugger;
+                    wearItem(name, equipmentId);
+                  }}
+                >
+                  <Image
+                    source={EQUIPMENT_LIST[name][equipmentId].itemImage}
+                    style={[iconStyle, { borderColor: "gold", borderWidth: 1 }]}
+                  />
+                </TouchableOpacity>
               )}
             </ImageBackground>
           </View>
