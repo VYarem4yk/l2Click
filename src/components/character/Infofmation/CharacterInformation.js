@@ -1,32 +1,46 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 
-export const CharacterInformation = () => {
+export const CharacterInformation = ({
+  characterPhysicalDamage,
+  characterMagicalDamage,
+  characterMagicalDefence,
+  characterPhysicalDefence,
+  characterAttackSpeed,
+  characterSkillRecoverySpeed,
+  characterCriticalChance,
+}) => {
   return (
     <View style={styles.informationWrapper}>
       <View style={styles.informationField}>
-        <Text style={styles.informationText}>Атака</Text>
-        <Text style={styles.informationText}>10</Text>
+        <Text style={styles.informationText}>Physical Damage</Text>
+        <Text style={styles.informationText}>{characterPhysicalDamage}</Text>
       </View>
       <View style={styles.informationField}>
-        <Text style={styles.informationText}>Защита</Text>
-        <Text style={styles.informationText}>20</Text>
+        <Text style={styles.informationText}>Physical Defence</Text>
+        <Text style={styles.informationText}>{characterPhysicalDefence}</Text>
       </View>
       <View style={styles.informationField}>
-        <Text style={styles.informationText}>Крит</Text>
-        <Text style={styles.informationText}>50</Text>
+        <Text style={styles.informationText}>Critical Chance</Text>
+        <Text style={styles.informationText}>{characterCriticalChance}</Text>
       </View>
       <View style={styles.informationField}>
-        <Text style={styles.informationText}>Скор. Атаки</Text>
-        <Text style={styles.informationText}>300</Text>
+        <Text style={styles.informationText}>Attack Speed</Text>
+        <Text style={styles.informationText}>{characterAttackSpeed}</Text>
       </View>
       <View style={styles.informationField}>
-        <Text style={styles.informationText}>Маг. Атака</Text>
-        <Text style={styles.informationText}>154</Text>
+        <Text style={styles.informationText}>Magical Damage</Text>
+        <Text style={styles.informationText}>{characterMagicalDefence}</Text>
       </View>
       <View style={styles.informationField}>
-        <Text style={styles.informationText}>Скор. Отакта</Text>
-        <Text style={styles.informationText}>520</Text>
+        <Text style={styles.informationText}>Magical Defence</Text>
+        <Text style={styles.informationText}>{characterPhysicalDefence}</Text>
+      </View>
+      <View style={styles.informationField}>
+        <Text style={styles.informationText}>Recovery Speed</Text>
+        <Text style={styles.informationText}>
+          {characterSkillRecoverySpeed}
+        </Text>
       </View>
     </View>
   );
@@ -51,6 +65,6 @@ const styles = StyleSheet.create({
   },
   informationText: {
     color: "white",
-    fontWeight: "bold",
+    fontSize: 12,
   },
 });

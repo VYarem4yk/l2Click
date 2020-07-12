@@ -4,7 +4,8 @@ export const CHARACTER_RECEIVE_DAMAGE = "CHARACTER_RECEIVE_DAMAGE";
 export const CHARACTER_RESSURECTION = "CHARACTER_RESSURECTION";
 export const CHARACTER_HEALTH_REGENERATION = "CHARACTER_HEALTH_REGENERATION";
 export const CHARACTER_MANA_REGENERATION = "CHARACTER_MANA_REGENERATION";
-export const EQUIP_ITEM = "EQUIP_ITEM";
+export const WEAR_ITEM = "WEAR_ITEM";
+export const USE_SKILL_HEAL = "USE_SKILL_HEAL";
 
 export const SKILLS = [
   {
@@ -103,7 +104,7 @@ export const ITEMS_LIST = {
   id_7: {
     itemName: "Animal Skin",
     isStackable: true,
-    itemImage: require("../../../../assets/drop/soulShotD.png"),
+    itemImage: require("../../../../assets/drop/Skin.png"),
   },
   id_99: {
     itemName: "Gold Coin",
@@ -111,11 +112,83 @@ export const ITEMS_LIST = {
     isStackable: true,
     itemImage: require("../../../../assets/drop/gold.png"),
   },
+  id_1000: {
+    itemName: "Handmade Sword",
+    itemGrade: 1,
+    physicalDamage: 17,
+    magicalDamage: 12,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Wepons/HandmadeSword.jpg"),
+  },
+  id_1024: {
+    itemName: "Leather Shoes",
+    itemGrade: 1,
+    physicalDefence: 13,
+    magicalDefence: 0,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Boots/LeatherShoes.jpg"),
+  },
+  id_1003: {
+    itemName: "Coral Earring",
+    itemGrade: 1,
+    physicalDefence: 0,
+    magicalDefence: 21,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Earrings/CoralEarring.jpg"),
+  },
+  id_1006: {
+    itemName: "Leather Helmet",
+    itemGrade: 1,
+    physicalDefence: 23,
+    magicalDefence: 0,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Helmets/LeatherHelmet.jpg"),
+  },
+  id_1009: {
+    itemName: "Blue Diamond Necklace",
+    itemGrade: 1,
+    physicalDefence: 0,
+    magicalDefence: 28,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Necklace/BlueDiamondNecklace.jpg"),
+  },
+  id_1012: {
+    itemName: "Bronze Breastplate",
+    itemGrade: 1,
+    physicalDefence: 68,
+    magicalDefence: 0,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Armors/BronzeBreastplate.jpg"),
+  },
+  id_1015: {
+    itemName: "Buckler",
+    itemGrade: 1,
+    physicalDefence: 68,
+    magicalDefence: 0,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Shields/Buckler.jpg"),
+  },
+  id_1018: {
+    itemName: "Leather Gloves",
+    itemGrade: 1,
+    physicalDefence: 15,
+    magicalDefence: 0,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Gloves/LeatherGloves.jpg"),
+  },
+  id_1021: {
+    itemName: "Bronze Gaiters",
+    itemGrade: 1,
+    physicalDefence: 43,
+    magicalDefence: 0,
+    isStackable: false,
+    itemImage: require("../../../../assets/Equipment/Pants/BronzeGaiters.jpg"),
+  },
 };
 
 export const EQUIPMENT_LIST = {
   WEAPON: {
-    id_0: {
+    id_1000: {
       itemName: "Handmade Sword",
       itemGrade: 1,
       physicalDamage: 17,
@@ -123,7 +196,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Wepons/HandmadeSword.jpg"),
     },
-    id_1: {
+    id_1001: {
       itemName: "Elven Sword",
       itemGrade: 20,
       physicalDamage: 51,
@@ -131,7 +204,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Wepons/ElvenSword.jpg"),
     },
-    id_2: {
+    id_1002: {
       itemName: "Katana",
       itemGrade: 40,
       physicalDamage: 122,
@@ -141,7 +214,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   EARRING: {
-    id_0: {
+    id_1003: {
       itemName: "Coral Earring",
       itemGrade: 1,
       physicalDefence: 0,
@@ -149,7 +222,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Earrings/CoralEarring.jpg"),
     },
-    id_1: {
+    id_1004: {
       itemName: "	Elven Earring",
       itemGrade: 20,
       physicalDefence: 0,
@@ -157,7 +230,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Earrings/ElvenEarring.jpg"),
     },
-    id_2: {
+    id_1005: {
       itemName: "Nassen's Earring",
       itemGrade: 40,
       physicalDefence: 0,
@@ -167,7 +240,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   HELMET: {
-    id_0: {
+    id_1006: {
       itemName: "Leather Helmet",
       itemGrade: 1,
       physicalDefence: 23,
@@ -175,7 +248,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Helmets/LeatherHelmet.jpg"),
     },
-    id_1: {
+    id_1007: {
       itemName: "Brigandine Helmet",
       itemGrade: 20,
       physicalDefence: 41,
@@ -183,7 +256,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Helmets/BrigandineHelmet.jpg"),
     },
-    id_2: {
+    id_1008: {
       itemName: "Plate Helmet",
       itemGrade: 40,
       physicalDefence: 0,
@@ -193,7 +266,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   NECKLACE: {
-    id_0: {
+    id_1009: {
       itemName: "Blue Diamond Necklace",
       itemGrade: 1,
       physicalDefence: 0,
@@ -201,7 +274,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Necklace/BlueDiamondNecklace.jpg"),
     },
-    id_1: {
+    id_1010: {
       itemName: "	Elven Necklace",
       itemGrade: 20,
       physicalDefence: 0,
@@ -209,7 +282,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Necklace/ElvenNecklace.jpg"),
     },
-    id_2: {
+    id_1011: {
       itemName: "Necklace of Mermaid",
       itemGrade: 40,
       physicalDefence: 0,
@@ -219,7 +292,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   ARMOR: {
-    id_0: {
+    id_1012: {
       itemName: "Bronze Breastplate",
       itemGrade: 1,
       physicalDefence: 68,
@@ -227,7 +300,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Armors/BronzeBreastplate.jpg"),
     },
-    id_1: {
+    id_1013: {
       itemName: "Brigandine",
       itemGrade: 20,
       physicalDefence: 74,
@@ -235,7 +308,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Armors/Brigandine.jpg"),
     },
-    id_2: {
+    id_1014: {
       itemName: "Full Plate Armor",
       itemGrade: 40,
       physicalDefence: 86,
@@ -245,7 +318,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   SHIELD: {
-    id_0: {
+    id_1015: {
       itemName: "Buckler",
       itemGrade: 1,
       physicalDefence: 68,
@@ -253,7 +326,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Shields/Buckler.jpg"),
     },
-    id_1: {
+    id_1016: {
       itemName: "Brigandine Shield",
       itemGrade: 20,
       physicalDefence: 100,
@@ -261,7 +334,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Shields/BrigandineShield.jpg"),
     },
-    id_2: {
+    id_1017: {
       itemName: "Full Plate Shield",
       itemGrade: 40,
       physicalDefence: 203,
@@ -271,7 +344,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   GLOVES: {
-    id_0: {
+    id_1018: {
       itemName: "Leather Gloves",
       itemGrade: 1,
       physicalDefence: 15,
@@ -279,7 +352,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Gloves/LeatherGloves.jpg"),
     },
-    id_1: {
+    id_1019: {
       itemName: "Brigandine Gauntlets",
       itemGrade: 20,
       physicalDefence: 22,
@@ -287,7 +360,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Gloves/BrigandineGauntlets.jpg"),
     },
-    id_2: {
+    id_1020: {
       itemName: "Full Plate Gauntlets",
       itemGrade: 40,
       physicalDefence: 39,
@@ -297,7 +370,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   PANTS: {
-    id_0: {
+    id_1021: {
       itemName: "Bronze Gaiters",
       itemGrade: 1,
       physicalDefence: 43,
@@ -305,7 +378,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Pants/BronzeGaiters.jpg"),
     },
-    id_1: {
+    id_1022: {
       itemName: "Brigandine Gaiters",
       itemGrade: 20,
       physicalDefence: 64,
@@ -313,7 +386,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Pants/BrigandineGaiters.jpg"),
     },
-    id_2: {
+    id_1023: {
       itemName: "Full Plate Pants",
       itemGrade: 40,
       physicalDefence: 75,
@@ -323,7 +396,7 @@ export const EQUIPMENT_LIST = {
     },
   },
   BOOTS: {
-    id_0: {
+    id_1024: {
       itemName: "Leather Shoes",
       itemGrade: 1,
       physicalDefence: 13,
@@ -331,7 +404,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Boots/LeatherShoes.jpg"),
     },
-    id_1: {
+    id_1025: {
       itemName: "Brigandine Boots",
       itemGrade: 20,
       physicalDefence: 27,
@@ -339,7 +412,7 @@ export const EQUIPMENT_LIST = {
       isStackable: false,
       itemImage: require("../../../../assets/Equipment/Boots/BrigandineBoots.jpg"),
     },
-    id_2: {
+    id_1026: {
       itemName: "Full Plate Boots",
       itemGrade: 40,
       physicalDefence: 39,

@@ -13,12 +13,17 @@ export const CharacterMana = ({
         characterManaRegeneration(basicManaRegeneration);
     }, 2000);
     return () => clearInterval(id);
-  }, []);
+  }, [characterCurrentMana]);
 
   const { characterManaWrapper, curentMana, textWrapper } = styles;
   return (
     <View style={characterManaWrapper}>
-      <View style={curentMana} />
+      <View
+        style={[
+          curentMana,
+          { width: `${(characterCurrentMana / characterMana) * 100}%` },
+        ]}
+      />
       <View style={textWrapper}>
         <Text>
           {characterCurrentMana}/{characterMana}

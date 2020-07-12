@@ -6,14 +6,17 @@ import { connect } from "react-redux";
 import { useIsFocused } from "@react-navigation/native";
 import { CharacterWrapper } from "./components/CharacterWrapper";
 import { CharacterInfoWrapper } from "./components/CharacterInfoWrapper";
+import { wearItem } from "../../components/character/store/actions";
 
-const Character = ({ character }) => {
+const Character = ({ character, wearItem }) => {
   const {
-    characterHealth,
-    characterMana,
     characterPhysicalDamage,
+    characterMagicalDamage,
     characterMagicalDefence,
     characterPhysicalDefence,
+    characterAttackSpeed,
+    characterSkillRecoverySpeed,
+    characterCriticalChance,
     characterItemsInventory,
     characterEquipment,
   } = character;
@@ -23,13 +26,24 @@ const Character = ({ character }) => {
 
   useEffect(() => {
     setInventory(characterItemsInventory);
-  }, [isFocused]);
+  });
 
   return (
     <CharacterWrapper>
       <CharacterInfoWrapper>
-        <CharacterInformation />
-        <Equipment characterEquipment={characterEquipment} />
+        <CharacterInformation
+          characterPhysicalDamage={characterPhysicalDamage}
+          characterMagicalDamage={characterMagicalDamage}
+          characterMagicalDefence={characterMagicalDefence}
+          characterPhysicalDefence={characterPhysicalDefence}
+          characterAttackSpeed={characterAttackSpeed}
+          characterSkillRecoverySpeed={characterSkillRecoverySpeed}
+          characterCriticalChance={characterCriticalChance}
+        />
+        <Equipment
+          characterEquipment={characterEquipment}
+          wearItem={wearItem}
+        />
       </CharacterInfoWrapper>
       <Inventory characterItemsInventory={inventory} />
     </CharacterWrapper>
@@ -40,4 +54,4 @@ const mapStateToProps = (state) => ({
   character: state.character,
 });
 
-export default connect(mapStateToProps, null)(Character);
+export default connect(mapStateToProps, { wearItem })(Character);

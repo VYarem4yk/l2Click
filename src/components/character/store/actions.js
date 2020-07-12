@@ -5,7 +5,8 @@ import {
   CHARACTER_RESSURECTION,
   CHARACTER_HEALTH_REGENERATION,
   CHARACTER_MANA_REGENERATION,
-  EQUIP_ITEM,
+  WEAR_ITEM,
+  USE_SKILL_HEAL,
 } from "./constants";
 
 export const setCharacterLevel = () => ({
@@ -36,7 +37,14 @@ export const characterManaRegeneration = (manaRecoveryAmount) => ({
   manaRecoveryAmount,
 });
 
-export const equipItem = (item) => ({
-  type: EQUIP_ITEM,
-  item,
+export const wearItem = (name, equipmentId) => ({
+  type: WEAR_ITEM,
+  equipmentId: equipmentId,
+  name: name,
+});
+
+export const useSkillHeal = (healAmount, manaConsumption) => ({
+  type: USE_SKILL_HEAL,
+  healAmount,
+  manaConsumption,
 });
